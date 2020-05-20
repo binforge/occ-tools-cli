@@ -1,5 +1,6 @@
 import { flags } from '@oclif/command';
 import OCCCommand from '../classes/OCCCommand';
+import axios from 'axios';
 
 export default class Config extends OCCCommand {
   static description = 'describe the command here';
@@ -16,13 +17,6 @@ export default class Config extends OCCCommand {
 
   async run() {
     const { args, flags } = this.parse(Config);
-
-    const name = flags.name ?? 'world';
-    this.log(
-      `hello ${name} from /home/programmer/WebstormProjects/occ-tools-cli/src/commands/config.ts`
-    );
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`);
-    }
+    const loggedIn = await axios.post();
   }
 }
