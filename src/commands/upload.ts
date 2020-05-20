@@ -1,25 +1,28 @@
-import {Command, flags} from '@oclif/command'
+import { flags } from "@oclif/command";
+import OCCCommand from "../classes/OCCCommand";
 
-export default class Upload extends Command {
-  static description = 'describe the command here'
+export default class Upload extends OCCCommand {
+  static description = "describe the command here";
 
   static flags = {
-    help: flags.help({char: 'h'}),
+    help: flags.help({ char: "h" }),
     // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
+    name: flags.string({ char: "n", description: "name to print" }),
     // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
-  }
+    force: flags.boolean({ char: "f" }),
+  };
 
-  static args = [{name: 'file'}]
+  static args = [{ name: "file" }];
 
   async run() {
-    const {args, flags} = this.parse(Upload)
+    const { args, flags } = this.parse(Upload);
 
-    const name = flags.name ?? 'world'
-    this.log(`hello ${name} from /mnt/c/projects/occ/occ-cli/src/commands/upload.ts`)
+    const name = flags.name ?? "world";
+    this.log(
+      `hello ${name} from /mnt/c/projects/occ/occ-cli/src/commands/upload.ts`
+    );
     if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
+      this.log(`you input --force and --file: ${args.file}`);
     }
   }
 }

@@ -19,7 +19,7 @@ $ npm install -g occ-cli
 $ occ-cli COMMAND
 running command...
 $ occ-cli (-v|--version|version)
-occ-cli/0.0.0 linux-x64 node-v14.2.0
+occ-cli/0.0.0 linux-x64 node-v14.3.0
 $ occ-cli --help [COMMAND]
 USAGE
   $ occ-cli COMMAND
@@ -28,8 +28,25 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`occ-cli config [FILE]`](#occ-cli-config-file)
 * [`occ-cli help [COMMAND]`](#occ-cli-help-command)
 * [`occ-cli upload [FILE]`](#occ-cli-upload-file)
+
+## `occ-cli config [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ occ-cli config [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/config.ts](https://github.com/mpiatkowski-msi/occ-cli/blob/v0.0.0/src/commands/config.ts)_
 
 ## `occ-cli help [COMMAND]`
 
