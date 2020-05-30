@@ -1,8 +1,7 @@
 import { flags } from '@oclif/command';
-import OCCCommand from '../classes/OCCCommand';
-import axios from 'axios';
+import OCCCommand from '../../common/OCCCommand';
 
-export default class Config extends OCCCommand {
+export default class Upload extends OCCCommand {
   static description = 'describe the command here';
 
   static flags = {
@@ -16,7 +15,14 @@ export default class Config extends OCCCommand {
   static args = [{ name: 'file' }];
 
   async run() {
-    const { args, flags } = this.parse(Config);
-    const loggedIn = await axios.post();
+    const { args, flags } = this.parse(Upload);
+
+    const name = flags.name ?? 'world';
+    this.log(
+      `hello ${name} from /mnt/c/projects/occ/occ-cli/src/commands/upload.ts`
+    );
+    if (args.file && flags.force) {
+      this.log(`you input --force and --file: ${args.file}`);
+    }
   }
 }
