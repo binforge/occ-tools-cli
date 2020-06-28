@@ -1,12 +1,23 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import * as notifier from 'node-notifier';
+import { Logger } from 'tslog';
 
 export class RequestService {
-	constructor(private requestData: AxiosRequestConfig) {}
+	private logger = new Logger();
+	constructor() {}
 
-	async send() {
-		axios(this.requestData)
-			.then(response => {})
-			.catch(error => {})
-			.finally(() => {});
+	async send(requestData: AxiosRequestConfig) {
+		return await axios(requestData)
+			.then(response => response)
+			.catch(error => {
+				// this.logger.error(error);
+      console.log(error)
+			})
+			.finally(() => {
+				notifier.notify({
+					title: 'occ-tools CLI',
+					message: 'Request sent.',
+				});
+			});
 	}
 }

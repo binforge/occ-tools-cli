@@ -1,5 +1,5 @@
 import { flags } from '@oclif/command';
-import OccCommand from '../../common/occ-command';
+import OccCommand from '../../common/classes/occ-command';
 
 export default class Index extends OccCommand {
   static description = 'describe the command here';
