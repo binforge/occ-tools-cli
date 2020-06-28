@@ -1,7 +1,7 @@
 import { flags } from '@oclif/command';
-import OCCCommand from '../../common/OCCCommand';
+import OccCommand from '../../common/occ-command';
 
-export default class Upload extends OCCCommand {
+export default class Index extends OccCommand {
   static description = 'describe the command here';
 
   static flags = {
@@ -15,7 +15,7 @@ export default class Upload extends OCCCommand {
   static args = [{ name: 'file' }];
 
   async run() {
-    const { args, flags } = this.parse(Upload);
+    const { args, flags } = this.parse(Index);
 
     const name = flags.name ?? 'world';
     this.log(
