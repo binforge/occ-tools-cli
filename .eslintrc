@@ -3,5 +3,9 @@
     "oclif",
     "oclif-typescript",
     "plugin:prettier/recommended"
-  ]
+  ],
+  "rules": {
+    "node": true,
+    "unicorn/filename-case": "off"
+  }
 }

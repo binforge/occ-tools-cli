@@ -4,20 +4,19 @@ import { Logger } from 'tslog';
 
 export class RequestService {
 	private logger = new Logger();
-	constructor() {}
 
 	async send(requestData: AxiosRequestConfig) {
-		return await axios(requestData)
+		return axios(requestData)
 			.then(response => response)
 			.catch(error => {
 				// this.logger.error(error);
-      console.log(error)
+				console.log(error);
 			})
 			.finally(() => {
-				notifier.notify({
-					title: 'occ-tools CLI',
-					message: 'Request sent.',
-				});
+				// notifier.notify({
+				// 	title: 'occ-tools CLI',
+				// 	message: 'Request sent.',
+				// });
 			});
 	}
 }
