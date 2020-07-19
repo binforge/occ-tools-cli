@@ -2,7 +2,7 @@ import { Command } from '@oclif/command';
 import * as Config from '@oclif/config';
 import { RequestService } from '../services/RequestService';
 import { Logger } from 'tslog';
-import * as qs from 'querystring';
+import RequestData from '../services/RequestData';
 
 export default abstract class OCCCommand extends Command {
 	// protected token: string;
@@ -16,20 +16,7 @@ export default abstract class OCCCommand extends Command {
 	}
 
 	private async authenticate() {
-		const subdomain = process.env[`OCC_SUBDOMAIN_${process.env.CURRENT_ENV}`];
-		const authKey = process.env[`OCC_AUTH_${process.env.CURRENT_ENV}`];
-		const data = await this.requestService.send({
-			method: 'POST',
-			url: `https://ccadmin-${subdomain}-zd8a.oracleoutsourcing.com/ccadmin/v1/login`,
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-				Authorization: `Bearer ${authKey}`,
-			},
-			data: qs.stringify({
-				grant_type: 'client_credentials',
-			}),
-		});
-		// this.logger.info(data);
-		this.log(data);
+		const data = await this.requestService.send(RequestData.authenticate());
+		this.logger.silly(data);
 	}
 }
