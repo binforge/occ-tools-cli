@@ -1,13 +1,10 @@
 occ-cli
 =======
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-
-
-
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/occ-cli.svg)](https://npmjs.org/package/occ-cli)
 [![Downloads/week](https://img.shields.io/npm/dw/occ-cli.svg)](https://npmjs.org/package/occ-cli)
-[![License](https://img.shields.io/npm/l/occ-cli.svg)](https://github.com/mpiatkowski-msi/occ-cli/blob/master/package.json)
+[![License](https://img.shields.io/npm/l/occ-cli.svg)](https://github.com/binforge/occ-cli/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -63,5 +60,5 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/upload.ts](https://github.com/mpiatkowski-msi/occ-cli/blob/v0.0.0/src/commands/upload.ts)_
+_See code: [src/commands/upload.ts](https://github.com/binforge/occ-cli/blob/v0.0.0/src/commands/upload.ts)_
 <!-- commandsstop -->
