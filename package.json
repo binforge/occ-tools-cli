@@ -1,11 +1,11 @@
 {
-  "name": "occ-cli",
-  "version": "0.0.0",
+  "name": "occ-tools-cli",
+  "version": "0.0.0-development",
   "author": "Mateusz Piatkowski @mpiatkowski-msi",
   "bin": {
     "occ-cli": "./bin/run"
   },
-  "bugs": "https://github.com/mpiatkowski-msi/occ-cli/issues",
+  "bugs": "https://github.com/binforge/occ-tools-cli/issues",
   "dependencies": {
     "@oclif/command": "^1.6.1",
     "@oclif/config": "^1.15.1",
@@ -16,6 +16,12 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.7",
+    "@semantic-release/npm": "^7.0.5",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/node": "^10.17.21",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
@@ -28,6 +34,8 @@
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "prettier": "2.0.5",
+    "semantic-release": "^17.1.1",
+    "semantic-release-cli": "^5.4.0",
     "snowpack": "^2.0.3",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.2"
@@ -37,11 +45,11 @@
   },
   "files": [
     "/bin",
-    "/lib",
+    "/src",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/mpiatkowski-msi/occ-cli",
+  "homepage": "https://github.com/binforge/occ-tools-cli",
   "keywords": [
     "oclif"
   ],
@@ -49,12 +57,12 @@
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "occ-cli",
+    "bin": "occ-tools-cli",
     "plugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "mpiatkowski-msi/occ-cli",
+  "repository": "binforge/occ-tools-cli",
   "scripts": {
     "start": "./bin/run",
     "postpack": "rm -f oclif.manifest.json",
@@ -62,7 +70,8 @@
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md",
-    "git-cz": "git-cz"
+    "git-cz": "git-cz",
+    "semantic-release": "semantic-release"
   },
   "types": "lib/index.d.ts",
   "config": {
