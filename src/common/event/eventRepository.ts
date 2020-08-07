@@ -1,4 +1,4 @@
-import connection from './connection';
+import connection from '../db/connection';
 
 const EVENTS = 'events';
 
@@ -9,5 +9,5 @@ export default class EventRepository {
 		return this.db.get(EVENTS).find({ id }).value();
 	}
 
-	addEvent() {}
+	// addEvent() {}
 }
