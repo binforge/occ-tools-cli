@@ -1,10 +1,10 @@
 import * as qs from 'querystring';
-import RequestTypes from '../interface/RequestTypes';
+import HTTPTypes from '../interface/HTTPTypes';
 
 const SUBDOMAIN = process.env[`OCC_SUBDOMAIN_${process.env.CURRENT_ENV}`];
 const AUTH_KEY = process.env[`OCC_AUTH_${process.env.CURRENT_ENV}`];
 
-const RequestData: RequestTypes = {
+const HTTPRequest: HTTPTypes = {
 	authenticate: {
 		method: 'POST',
 		url: `https://ccadmin-${SUBDOMAIN}-${process.env.ORGANIZATION_ID}.oracleoutsourcing.com/ccadmin/v1/login`,
@@ -18,4 +18,4 @@ const RequestData: RequestTypes = {
 	},
 };
 
-export default RequestData;
+export default HTTPRequest;

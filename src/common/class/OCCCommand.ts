@@ -1,21 +1,13 @@
 import { Command } from '@oclif/command';
 import * as Config from '@oclif/config';
-import { RequestService } from '../service/RequestService';
-import { Logger } from 'tslog';
-import RequestData from '../service/RequestData';
+import EventService from '../service/EventService';
 
 export default abstract class OCCCommand extends Command {
-	private logger = new Logger();
-
-	private requestService = new RequestService();
+	private eventService = new EventService();
 
 	protected constructor(argv: string[], config: Config.IConfig) {
 		super(argv, config);
-		this.authenticate().then(() => this.logger.silly('Auth finished'));
-	}
-
-	private async authenticate() {
-		const data = await this.requestService.send(RequestData.authenticate);
-		this.logger.silly(data);
+		// this.eventService.authenticate();
+		this.eventService.checkIfAuthenticated();
 	}
 }
