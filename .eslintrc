@@ -6,6 +6,8 @@
   ],
   "rules": {
     "node": true,
-    "unicorn/filename-case": "off"
+    "unicorn/filename-case": "off",
+    "lines-between-class-members": "off",
+    "no-return-await": "off"
   }
 }

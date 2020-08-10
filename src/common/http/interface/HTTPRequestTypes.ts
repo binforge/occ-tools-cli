@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
 
-export default interface HTTPTypes {
+export default interface HTTPRequestTypes {
 	authenticate: AxiosRequestConfig;
 }

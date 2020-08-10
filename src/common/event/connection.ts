@@ -1,10 +1,9 @@
-import * as Datastore from 'nedb';
 import * as path from 'path';
-import Nedb from 'nedb';
+import Datastore from 'nedb-promises';
 
-export default (): Nedb => {
-	return new Datastore({
-		filename: path.join(process.env.PWD, 'db', 'events.ndjson'),
+export default () => {
+	return Datastore.create({
+		filename: path.join(process.env.PWD || '', 'db', 'events.ndjson'),
 		timestampData: true,
 		autoload: true,
 		corruptAlertThreshold: 0,
