@@ -28,14 +28,4 @@ export default class EventRepository implements EventRepositoryOperations {
 				this.logger.error(error);
 			});
 	}
-
-	async getEvents() {
-		return await this.db
-			.find({})
-			.sort({ createdAt: -1 })
-			.then(docs => docs)
-			.catch(error => {
-				this.logger.error(error);
-			});
-	}
 }

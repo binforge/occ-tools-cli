@@ -20,6 +20,7 @@ export default class EventService {
 			data,
 		};
 		await this.eventRepository.addEvent(event);
+		return data.access_token;
 	}
 
 	async getAccessToken() {
