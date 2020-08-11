@@ -8,6 +8,8 @@
     "node": true,
     "unicorn/filename-case": "off",
     "lines-between-class-members": "off",
-    "no-return-await": "off"
+    "no-return-await": "off",
+    "linebreak-style": "off",
+    "no-useless-constructor": "off"
   }
 }

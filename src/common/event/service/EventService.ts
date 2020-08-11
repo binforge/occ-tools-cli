@@ -1,6 +1,6 @@
-import { HTTPService } from '../../http/service/HTTPService';
+import HTTPService from '../../http/service/HTTPService';
 import HTTPRequest from '../../http/HTTPRequest';
-import EventRepository from '../eventRepository';
+import EventRepository from '../EventRepository';
 import EventModel from '../interface/EventModel';
 import EVENT_TYPE from '../interface/EventTypes';
 import AuthResponse from '../../http/interface/HTTPResponseTypes';
@@ -9,9 +9,9 @@ import now from '../../helpers/now';
 import { Logger } from 'tslog';
 
 export default class EventService {
-	private httpService = new HTTPService();
-	private eventRepository = new EventRepository();
 	private logger = new Logger();
+
+	constructor(private eventRepository: EventRepository, private httpService: HTTPService) {}
 
 	async authenticate() {
 		const data = await this.httpService.send(HTTPRequest.authenticate);
@@ -25,6 +25,7 @@ export default class EventService {
 	async getAccessToken() {
 		const record = await this.eventRepository.getEvent({ name: EVENT_TYPE.AUTH_REQUESTED });
 		if (record && this.isAccessTokenValid(record)) {
+			// TODO: remove below comments (ts typing)
 			// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 			// @ts-ignore
 			return record.data.access_token;

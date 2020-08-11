@@ -2,10 +2,10 @@ import axios, { AxiosRequestConfig } from 'axios';
 import notifier from 'node-notifier';
 import { Logger } from 'tslog';
 
-export class HTTPService {
+export default class HTTPService {
 	private logger = new Logger();
 
-	async send(requestData: AxiosRequestConfig) {
+	async send(requestData: AxiosRequestConfig): Promise<any> {
 		return axios(requestData)
 			.then(response => {
 				return response.data;

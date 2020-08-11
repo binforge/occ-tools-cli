@@ -1,11 +1,13 @@
 import * as path from 'path';
 import Datastore from 'nedb-promises';
 
-export default () => {
-	return Datastore.create({
-		filename: path.join(process.env.PWD || '', 'db', 'events.ndjson'),
-		timestampData: true,
-		autoload: true,
-		corruptAlertThreshold: 0,
-	});
+const permanentOptions = {
+	filename: path.join(process.env.PWD || '', 'db', 'events.ndjson'),
+	timestampData: true,
+	autoload: true,
+	corruptAlertThreshold: 0,
+};
+
+export default (options: any = permanentOptions) => {
+	return Datastore.create(options);
 };
