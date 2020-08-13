@@ -6,11 +6,9 @@ import EVENT_TYPE from '../interface/EventTypes';
 import AuthResponse from '../../http/interface/HTTPResponseTypes';
 import DatabaseDocument from '../../interface/DatabaseDocument';
 import now from '../../helpers/now';
-import { Logger } from 'tslog';
+import { withErrorHandling } from '../../helpers/errorHandler';
 
 export default class EventService {
-	private logger = new Logger();
-
 	constructor(private eventRepository: EventRepository, private httpService: HTTPService) {}
 
 	async authenticate() {
@@ -34,14 +32,11 @@ export default class EventService {
 		return await this.authenticate();
 	}
 
-	isAccessTokenValid(record: any | (EventModel<AuthResponse> & DatabaseDocument)): boolean {
-		try {
-			const expiresInMiliseconds = record.data.expires_in * 1000;
-			const currentDate = now.nowInMiliseconds();
-			const createdAtDate = now.dateInMiliseconds((record.createdAt || '').toString());
-			return currentDate - createdAtDate < expiresInMiliseconds;
-		} catch (error) {
-			throw this.logger.error(error);
-		}
+	@withErrorHandling
+	private isAccessTokenValid(record: any | (EventModel<AuthResponse> & DatabaseDocument)): boolean {
+		const expiresInMiliseconds = record.data.expires_in * 1000;
+		const currentDate = now.nowInMiliseconds();
+		const createdAtDate = now.dateInMiliseconds((record.createdAt || '').toString());
+		return currentDate - createdAtDate < expiresInMiliseconds;
 	}
 }

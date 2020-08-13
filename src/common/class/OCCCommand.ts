@@ -8,12 +8,11 @@ export default abstract class OCCCommand extends Command {
 	private eventRepository = new EventRepository();
 	private httpService = new HTTPService();
 	private eventService = new EventService(this.eventRepository, this.httpService);
-	protected accessToken: string;
+	protected accessToken: string | undefined;
 
 	protected constructor(argv: string[], config: Config.IConfig) {
 		super(argv, config);
 		this.eventService.getAccessToken().then(response => {
-			console.log({ response });
 			this.accessToken = response;
 		});
 	}

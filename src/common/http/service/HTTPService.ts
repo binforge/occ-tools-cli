@@ -1,18 +1,12 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import notifier from 'node-notifier';
-import { Logger } from 'tslog';
+import { withAsyncErrorHandling } from '../../helpers/errorHandler';
 
 export default class HTTPService {
-	private logger = new Logger();
-
+	@withAsyncErrorHandling
 	async send(requestData: AxiosRequestConfig): Promise<any> {
 		return axios(requestData)
-			.then(response => {
-				return response.data;
-			})
-			.catch(error => {
-				this.logger.error(error);
-			})
+			.then(response => response.data)
 			.finally(() => {
 				notifier.notify({
 					title: 'occ-tools CLI',

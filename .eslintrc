@@ -9,7 +9,9 @@
     "unicorn/filename-case": "off",
     "lines-between-class-members": "off",
     "no-return-await": "off",
-    "linebreak-style": "off",
-    "no-useless-constructor": "off"
+    "no-useless-constructor": "off",
+    "prefer-rest-params": "off",
+    "no-process-exit": "off",
+    "unicorn/no-process-exit": "off"
   }
 }

@@ -15,6 +15,7 @@
     "nedb": "^1.8.0",
     "nedb-promises": "^4.0.4",
     "node-notifier": "^7.0.1",
+    "reflect-metadata": "^0.1.13",
     "tslib": "^1.13.0",
     "tslog": "^2.6.5"
   },
