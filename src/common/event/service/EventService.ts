@@ -6,7 +6,7 @@ import EVENT_TYPE from '../interface/EventTypes';
 import AuthResponse from '../../http/interface/HTTPResponseTypes';
 import DatabaseDocument from '../../interface/DatabaseDocument';
 import now from '../../helpers/now';
-import { withErrorHandling } from '../../helpers/errorHandler';
+import { catchError } from '../../helpers/errorHandler';
 
 export default class EventService {
 	constructor(private eventRepository: EventRepository, private httpService: HTTPService) {}
@@ -32,7 +32,7 @@ export default class EventService {
 		return await this.authenticate();
 	}
 
-	@withErrorHandling
+	@catchError
 	private isAccessTokenValid(record: any | (EventModel<AuthResponse> & DatabaseDocument)): boolean {
 		const expiresInMiliseconds = record.data.expires_in * 1000;
 		const currentDate = now.nowInMiliseconds();

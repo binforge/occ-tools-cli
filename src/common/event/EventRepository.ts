@@ -2,7 +2,7 @@ import connection from './dbConnection';
 import EventModel from './interface/EventModel';
 import DatabaseDocument from '../interface/DatabaseDocument';
 import Datastore from 'nedb-promises/index';
-import { withAsyncErrorHandling } from '../helpers/errorHandler';
+import { catchError } from '../helpers/errorHandler';
 
 interface EventRepositoryOperations {
 	addEvent(event: EventModel<any>): void;
@@ -12,12 +12,12 @@ interface EventRepositoryOperations {
 export default class EventRepository implements EventRepositoryOperations {
 	constructor(protected db: Datastore = connection()) {}
 
-	@withAsyncErrorHandling
+	@catchError
 	async addEvent(event: EventModel<any>) {
 		await this.db.insert(event);
 	}
 
-	@withAsyncErrorHandling
+	@catchError
 	async getEvent(searchCriteria = {}, projections = {}): Promise<any> {
 		return await this.db
 			.find(searchCriteria, projections)

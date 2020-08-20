@@ -27,7 +27,7 @@ describe('EventService', function () {
 		assert.deepStrictEqual(record.data.access_token, AUTH_RESPONSE.access_token);
 	});
 
-	it.skip('should get access token', async function () {
+	it('should get access token', async function () {
 		// WHEN
 		const accessToken = await eventService.getAccessToken();
 		// THEN
