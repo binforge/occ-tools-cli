@@ -4,7 +4,7 @@
 /dist
 /lib
 /tmp
-/yarn.lock
 /.idea
-node_modules
+/node_modules
 /.env
+/db

@@ -11,8 +11,23 @@ occ-cli
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 # Usage
 <!-- usage -->
+```sh-session
+$ npm install -g occ-tools-cli
+$ occ-tools-cli COMMAND
+running command...
+$ occ-tools-cli (-v|--version|version)
+occ-tools-cli/0.0.0-development linux-x64 node-v14.5.0
+$ occ-tools-cli --help [COMMAND]
+USAGE
+  $ occ-tools-cli COMMAND
+...
+```
+<!-- usagestop -->
 ```sh-session
 $ npm install -g occ-cli
 $ occ-cli COMMAND
@@ -27,6 +42,25 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`occ-tools-cli help [COMMAND]`](#occ-tools-cli-help-command)
+
+## `occ-tools-cli help [COMMAND]`
+
+display help for occ-tools-cli
+
+```
+USAGE
+  $ occ-tools-cli help [COMMAND]
+
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
+<!-- commandsstop -->
 * [`occ-cli help [COMMAND]`](#occ-cli-help-command)
 * [`occ-cli upload [FILE]`](#occ-cli-upload-file)
 
