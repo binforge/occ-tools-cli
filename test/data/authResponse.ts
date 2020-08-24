@@ -1,4 +1,4 @@
-import AuthResponse from '../../src/common/http/interface/HTTPResponseTypes';
+import AuthResponse from '../../src/common/interface/http/ResponseTypes';
 
 export const AUTH_RESPONSE: AuthResponse = {
 	access_token: 'access_token',

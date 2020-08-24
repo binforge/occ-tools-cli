@@ -1,8 +1,8 @@
 import connection from './dbConnection';
-import EventModel from './interface/EventModel';
-import DatabaseDocument from '../interface/DatabaseDocument';
+import EventModel from './interface/event/EventModel';
+import DatabaseDocument from './interface/DatabaseDocument';
 import Datastore from 'nedb-promises/index';
-import { catchError } from '../helpers/errorHandler';
+import { catchError } from './helpers/errorHandler';
 
 interface EventRepositoryOperations {
 	addEvent(event: EventModel<any>): void;

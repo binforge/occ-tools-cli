@@ -1,5 +1,6 @@
 import { flags } from '@oclif/command';
 import OCCCommand from '../common/class/OCCCommand';
+import logger from '../common/helpers/logger';
 
 export default class Upload extends OCCCommand {
 	static description = 'describe the command here';
@@ -18,9 +19,9 @@ export default class Upload extends OCCCommand {
 		const { args, flags } = this.parse(Upload);
 
 		const name = flags.name ?? 'world';
-		this.log(`hello ${name} from /mnt/c/projects/occ/occ-cli/src/commands/upload.ts`);
+		logger.info(`hello ${name} from /mnt/c/projects/occ/occ-cli/src/commands/upload.ts`);
 		if (args.file && flags.force) {
-			this.log(`you input --force and --file: ${args.file}`);
+			logger.info(`you input --force and --file: ${args.file}`);
 		}
 	}
 }
