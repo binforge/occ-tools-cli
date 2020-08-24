@@ -1,4 +1,4 @@
-import HTTPService from './HTTPService';
+import HTTPService from './index';
 
 export default class MockHTTPService extends HTTPService {
 	constructor(private response: any) {

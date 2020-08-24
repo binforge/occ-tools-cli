@@ -1,9 +1,9 @@
-import HTTPService from '../../http/service/HTTPService';
-import HTTPRequest from '../../http/HTTPRequest';
-import EventRepository from '../EventRepository';
-import EventModel from '../interface/EventModel';
-import EVENT_TYPE from '../interface/EventTypes';
-import AuthResponse from '../../http/interface/HTTPResponseTypes';
+import HTTPService from '../../service/http/index';
+import HTTPRequest from '../../HTTPRequest';
+import EventRepository from '../../EventRepository';
+import EventModel from '../../interface/event/EventModel';
+import EVENT_TYPE from '../../interface/event/EventTypes';
+import AuthResponse from '../../interface/http/ResponseTypes';
 import DatabaseDocument from '../../interface/DatabaseDocument';
 import now from '../../helpers/now';
 import { catchError } from '../../helpers/errorHandler';

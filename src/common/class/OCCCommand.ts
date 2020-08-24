@@ -1,8 +1,8 @@
 import { Command } from '@oclif/command';
 import * as Config from '@oclif/config';
-import EventService from '../event/service/EventService';
-import EventRepository from '../event/EventRepository';
-import HTTPService from '../http/service/HTTPService';
+import EventService from '../service/event/index';
+import EventRepository from '../EventRepository';
+import HTTPService from '../service/http/index';
 
 export default abstract class OCCCommand extends Command {
 	private eventRepository = new EventRepository();

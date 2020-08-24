@@ -1,5 +1,5 @@
 import * as qs from 'querystring';
-import HTTPRequestTypes from './interface/HTTPRequestTypes';
+import HTTPRequestTypes from './interface/http/RequestTypes';
 
 const SUBDOMAIN = process.env[`OCC_SUBDOMAIN_${process.env.CURRENT_ENV}`];
 const AUTH_KEY = process.env[`OCC_AUTH_${process.env.CURRENT_ENV}`];

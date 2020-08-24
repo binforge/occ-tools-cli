@@ -1,10 +1,10 @@
 import assert from 'assert';
-import MockHTTPService from '../src/common/http/service/MockHTTPService';
-import EventService from '../src/common/event/service/EventService';
-import connection from '../src/common/event/dbConnection';
-import EventRepository from '../src/common/event/EventRepository';
+import MockHTTPService from '../src/common/service/http/mock';
+import EventService from '../src/common/service/event/index';
+import connection from '../src/common/dbConnection';
+import EventRepository from '../src/common/EventRepository';
 import { beforeEach } from 'mocha';
-import EVENT_TYPE from '../src/common/event/interface/EventTypes';
+import EVENT_TYPE from '../src/common/interface/event/EventTypes';
 import { AUTH_RESPONSE } from './data/authResponse';
 
 let httpService: MockHTTPService;
