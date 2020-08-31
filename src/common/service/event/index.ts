@@ -12,7 +12,7 @@ export default class EventService {
 	constructor(private eventRepository: EventRepository, private httpService: HTTPService) {}
 
 	async authenticate() {
-		const data = await this.httpService.send(HTTPRequest.authenticate);
+		const data = await this.httpService.send(HTTPRequest.authenticate());
 		const event: EventModel<AuthResponse> = {
 			name: EVENT_TYPE.AUTH_REQUESTED,
 			data,
