@@ -5,20 +5,20 @@ import Datastore from 'nedb-promises/index';
 import { catchError } from './helpers/errorHandler';
 
 interface EventRepositoryOperations {
-	addEvent(event: EventModel<any>): void;
-	getEvent(searchCriteria: {}, projections: {}): Promise<void | DatabaseDocument | EventModel<any>>;
+	add(event: EventModel<any>): void;
+	get(searchCriteria: {}, projections: {}): Promise<void | DatabaseDocument | EventModel<any>>;
 }
 
 export default class EventRepository implements EventRepositoryOperations {
 	constructor(protected db: Datastore = connection()) {}
 
 	@catchError
-	async addEvent(event: EventModel<any>) {
+	async add(event: EventModel<any>) {
 		await this.db.insert(event);
 	}
 
 	@catchError
-	async getEvent(searchCriteria = {}, projections = {}): Promise<any> {
+	async get(searchCriteria = {}, projections = {}): Promise<any> {
 		return await this.db
 			.find(searchCriteria, projections)
 			.sort({ createdAt: -1 })
