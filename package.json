@@ -34,7 +34,7 @@
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "prettier": "2.0.5",
-    "semantic-release": "^17.1.1",
+    "semantic-release": "^19.0.3",
     "semantic-release-cli": "^5.4.0",
     "snowpack": "^2.0.3",
     "ts-node": "^8.10.1",
